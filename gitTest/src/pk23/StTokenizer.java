@@ -9,8 +9,8 @@ public class StTokenizer {
 		StringTokenizer obj=new StringTokenizer(str," ",false);
 		
 		//StringTokenizer.hasMoreToken() -토큰이 저장되어있는 배열 
-		while(obj.hasMoreTokens()) {
-			String t=obj.nextToken();
+		while(obj.hasMoreTokens()) { //**
+			String t=obj.nextToken(); //**
 			System.out.println(t);
 		}
 	}
