@@ -1,7 +1,9 @@
-package chapter26;
+package pk_26_collection.arryList;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 /*
@@ -15,12 +17,12 @@ ArrayList<Student>의 모든 학생(4명) 정보를 출력하고 학생 이름을 입력받아 해당 학
 >> 이재문, 안드로이드, 2, 3.9
 >> 김남윤, 웹공학, 3, 3.5
 >> 최찬미, 빅데이터, 4, 4.25*/
-public class Stproc {
+public class Stproc2 {
 
 	public static void main(String[] args) {
 
-		Student student[] =new Student[4]; //Fixed-length
-		ArrayList<Student> manage=new ArrayList<Student>();
+		Student2 student[] =new Student2[4]; //Fixed-length
+		HashMap<String,Student2> manage=new HashMap<String,Student2>();
 		//=========================입력============================
 		Scanner sc=new Scanner(System.in);
 		System.out.println("학생이름, 학과, 학번, 학점평균 입력하세요");
@@ -33,19 +35,24 @@ public class Stproc {
 			String number=st.nextToken().trim(); 
 			Double scoreAvg=Double.parseDouble(st.nextToken().trim()); //4번째는 Double(클래스)로 바꿔줘야한다
 			//fixed-length 받고
-			student[i]=new Student(name,depart,number,scoreAvg);
+			student[i]=new Student2(name,depart,number,scoreAvg);
 			//Array(Student)-->ArrayLIst에 넣음
-			manage.add(student[i]);
+			manage.put(name,student[i]); //add가없는관계로put으로
 		}
 		//=========================출력============================	
-		for(int i=0;i<manage.size();i++) {
+		Set<String> key=manage.keySet(); //키가 이름이라서 String
+		//get이없기때문에 Iterator로...
+		Iterator<String> it=key.iterator();
+		while(it.hasNext()) {
+			String name=it.next();
 			System.out.println("=================================");
-			Student s=manage.get(i);
+			Student2 s=manage.get(name);
 			System.out.println("이름 : "+s.getName());
 			System.out.println("학과 : "+s.getDepart());
 			System.out.println("학번 : "+s.getNumber());
 			System.out.println("학점평균 : "+s.getScoreAvg());
 		}
+		
 		System.out.println("=================================");
 		while(true) {
 			System.out.println("학생이름을 입력하세요");
@@ -53,12 +60,10 @@ public class Stproc {
 			if(name.equals("그만")) {
 				break;
 			}else {
-				for(int i=0;i<manage.size();i++) {
-					//Student s=manage.get(i);
-					manage.get(i).find_student(name);
-				}
+				Student2 s=manage.get(name);
+				s.find_student(name);
 			}
-		}
+		}sc.close();
 	}
 }
 		
