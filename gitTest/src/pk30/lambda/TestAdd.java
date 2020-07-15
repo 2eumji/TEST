@@ -7,5 +7,5 @@ public class TestAdd {
 //			System.out.println(a+b);
 //		}
 		System.out.println(addF.add(3, 5)); //½ÇÇàºÎ
-	}
+	} 
 }
