@@ -15,7 +15,8 @@
 	%>
 	<jsp:forward page="footer.jsp">
 		<jsp:param name="email" value="test@test.net" />
-		<jsp:param name="tel" value="000-0000-0000"/>
-	</jsp:forward>
+		<jsp:param name="tel" value="000-1234-5678"/>
+	</jsp:forward><br>
+	<h2>forward_action.jsp가 종료됩니다</h2>
 </body>
 </html>
