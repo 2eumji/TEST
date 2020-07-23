@@ -23,7 +23,7 @@
 		texthobby += hobby[i]+" ";
 	} 
 %>
-	<!-- 객체이름은 mbean으로 자바빈 선언 -->
+	<!-- model.MemberDBBean 클래스의 객체 mbean으로 자바빈 선언 -->
 	<jsp:useBean id="mbean" class="model.MemberDBBean" scope="page">
 	<!-- 자바 빈 설정  -->
 		<jsp:setProperty property="*" name="mbean"/><!-- 매핑시킴 -->
@@ -37,7 +37,10 @@
 	String pass="12341234"; */
 	
 	MemberDAO mdao=new MemberDAO(); //DAO객체 생
-	mdao.insertMember(mbean);
+	mdao.insertMember(mbean); //insert into 
+	
+	//회원가입이 되면 회원정보를 보여주는 페이지로 이동시킴
+	response.sendRedirect("MemberList.jsp");
 
 %>
 	<%-- <h2>당신의 아이디 = <%= mbean.getId() %></h2>
