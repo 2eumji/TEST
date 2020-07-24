@@ -5,22 +5,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Left</title>
+<title>텐트용품</title>
 </head>
 <body>
-	<div>
+<div>
 		<table width="200">
 			<tr height="60">
-				<td width="200" align="center"><a href="SessionMain.jsp?left=1" style="text-decoration:none">캠핑 등산용품</a></td>
+				<td width="200" align="center"><a href="SessionSub.jsp?center=1&left=11" style="text-decoration:none">2룸 텐트</a></td>
 			</tr>
 			<tr height="60">
-				<td width="200" align="center"><a href="SessionMain.jsp?left=2" style="text-decoration:none">캠핑카</a></td>
+				<td width="200" align="center"><a href="SessionSub.jsp?center=1&left=12" style="text-decoration:none">돔텐트</a></td>
 			</tr>
 			<tr height="60">
-				<td width="200" align="center"><a href="SessionMain.jsp?left=3" style="text-decoration:none">여행 소품</a></td>
+				<td width="200" align="center"><a href="SessionSub.jsp?center=1&left=13" style="text-decoration:none">원터치텐트</a></td>
 			</tr>
 			<tr height="60">
-				<td width="200" align="center"><a href="SessionMain.jsp?left=4" style="text-decoration:none">광학 브랜드</a></td>
+				<td width="200" align="center"><a href="SessionSub.jsp?center=1&left=14" style="text-decoration:none">타프</a></td>
 			</tr>
 		</table>
 	</div>

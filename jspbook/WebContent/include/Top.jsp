@@ -13,15 +13,38 @@
 </style>
 </head>
 <body>
+<%
+	//로그아웃 클릭시 파라미터를 통해서 로그아웃판단
+	String logout=request.getParameter("logout");
+	
+	if(logout != null){ //로그인 상태
+		//id에 null값을 부여해야 로그아웃이 됨
+		session.setAttribute("id", null);		
+		//세션 유지시간을 kill
+		session.setMaxInactiveInterval(0);
+	}
+
+	//세션을 통해여 id를 읽어들임
+	String id=(String)session.getAttribute("id");
+	//로그인이 되지않은 상태 session값을 null처리
+	if(id==null){
+		id="Join";
+	}
+%>
 	<center>
-		 <ul class="topmenu">
-	        <li><a href="IncludeTest.jsp?camping=7">로그인</a></li>
-	        <li><a href="IncludeTest.jsp?camping=8">회원가입</a></li>
-	    </ul>
+		 <div class="topmenu">
+		 <%
+		 	if(id.equals("Join")){
+		 		 %>		
+		 	<%=id%> <button onclick="location.href='SessionMain.jsp?center=SessionLoginForm.jsp'">로그인</button>
+		<%}else{ %>
+			<%=id%> <button onclick="location.href='SessionMain.jsp?logout=1'">로그아웃</button>
+			<%}%>
+	    </div>
 		<table width="1200" border="0">
 			<tr height="100">
 				<td colspan="2" align="center" width="260">
-					<a href="IncludeTest.jsp"><img alt="" src="C:\Users\soldesk\git\TEST\jspbook\WebContent\img/logo.png"></a>
+					<a href="SessionMain.jsp"><img alt="" src="C:\Users\soldesk\git\TEST\jspbook\WebContent\img/logo.png"></a>
 				</td>
 				<td align="center" colspan="4">
 					<font size="10" color="#444444">My Own Spring Camp</font>
@@ -29,22 +52,22 @@
 			</tr>
 			<tr height="50">
 				<td width="130" align="center">
-					<a href="IncludeTest.jsp?camping=1" style="text-decoration:none;font-size:1.3em">Tent</a>
+					<a href="SessionSub.jsp?center=1" style="text-decoration:none;font-size:1.3em">Tent</a>
 				</td>
 				<td width="130" align="center">
-					<a href="IncludeTest.jsp?camping=2" style="text-decoration:none;font-size:1.3em">Chair</a>
+					<a href="SessionSub.jsp?center=2" style="text-decoration:none;font-size:1.3em">Sleeping</a>
 				</td>
 				<td width="130" align="center">
-					<a href="IncludeTest.jsp?camping=3" style="text-decoration:none;font-size:1.3em">Dishware</a>
+					<a href="SessionSub.jsp?center=3" style="text-decoration:none;font-size:1.3em">Dishware</a>
 				</td>
 				<td width="130" align="center">
-					<a href="IncludeTest.jsp?camping=4" style="text-decoration:none;font-size:1.3em">Sleeping</a>
+					<a href="SessionSub.jsp?center=4" style="text-decoration:none;font-size:1.3em">Chair</a>
 				</td>
 				<td width="130" align="center">
-					<a href="IncludeTest.jsp?camping=5" style="text-decoration:none;font-size:1.3em">Lantern</a>
+					<a href="SessionSub.jsp?center=5" style="text-decoration:none;font-size:1.3em">Lantern</a>
 				</td>
 				<td width="130" align="center">
-					<a href="IncludeTest.jsp?camping=6" style="text-decoration:none;font-size:1.3em">Table</a>
+					<a href="SessionSub.jsp?center=6" style="text-decoration:none;font-size:1.3em">Table</a>
 				</td>
 			</tr>	
 		</table>

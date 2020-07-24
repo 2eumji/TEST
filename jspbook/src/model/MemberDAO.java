@@ -25,7 +25,7 @@ public class MemberDAO {
 			//2.해당 데이터베이스에 접속
 			con=DriverManager.getConnection(url, user, pass);
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 	}
 	
