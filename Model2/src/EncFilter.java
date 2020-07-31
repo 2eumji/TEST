@@ -1,0 +1,37 @@
+
+
+import java.io.IOException;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
+
+
+@WebFilter("*.jsp")//모든 jsp에 이 필터 적용
+public class EncFilter implements Filter {
+	
+	private String encoding;
+	
+    public EncFilter() {
+    }
+	public void destroy() {
+	}
+	
+	//필터 처리 메소드
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+		//캐릭터 인코딩 설정이 없는 경우
+		if(request.getCharacterEncoding()==null) {
+			request.setCharacterEncoding(encoding);
+		}
+		chain.doFilter(request, response);
+	}
+
+	public void init(FilterConfig fConfig) throws ServletException {
+		this.encoding=fConfig.getServletContext().getInitParameter("encoding");
+	}
+
+}
